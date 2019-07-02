@@ -1,0 +1,21 @@
+{
+  "name": "matrix-github-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "oauth_server": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "github-api": "^3.2.2",
+    "matrix-js-sdk": "^2.0.1",
+    "node-schedule": "^1.3.2",
+    "request": "^2.88.0",
+    "sqlite3": "^4.0.9"
+  }
+}

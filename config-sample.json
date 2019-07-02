@@ -1,0 +1,10 @@
+{
+    "matrix_user": "@test:my.matrix.homeserver",
+    "matrix_access_token": "",
+    "matrix_homeserver": "my.matrix.homeserver",
+    "matrix_owner_id": "@chris:my.matrix.homeserver",
+    "channel_aliases": {
+        "notifications": "notifications",
+        "alerts": "github_alerts"
+    }
+}

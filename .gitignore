@@ -1,0 +1,4 @@
+node_modules/
+.gh_access_token
+.matrix-client.db
+config.json
