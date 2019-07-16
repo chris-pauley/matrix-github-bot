@@ -19,7 +19,7 @@ module.exports = [
             });
         }
     }, {
-        schedule: '0 09 * * *',
+        schedule: '0 16 * * *',
         action: async function() {
             const repos = [
                 "infegy/atlas",
