@@ -12,15 +12,15 @@ module.exports = [
                 }
                 var title = notification.repository.full_name,
                     subject = notification.subject.title,
-                    link = notification.subject.url,
+                    link = notification.repository.html_url,
                     type = notification.subject.type;
                 this.sendMessage(this.channels.notifications, `<b>${title}</b> ${type} <a href="${link}">${subject}</a>`);
                 this.markSeen('notification', notification.id);
             });
         }
     }, {
-        schedule: '0 16 * * *',
-        action: async function() {
+        schedule: '0 13 * * *',
+        action: async function githubUpdate() {
             const repos = [
                 "infegy/atlas",
                 "infegy/canvas",
