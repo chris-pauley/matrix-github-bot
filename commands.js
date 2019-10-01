@@ -72,13 +72,13 @@ const testRepoSummary = async function(){
             oldPRs.forEach((pr) => {
                 var date = new Date(pr.updated_at),
                     date_str = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
-                    message += `&nbsp;&nbsp;<b><a href="${pr.url}">${pr.title}</a></b> last updated ${date_str}<br>`;
+                    message += `&nbsp;&nbsp;<b><a href="${pr.html_url}">${pr.title}</a></b> last updated ${date_str}<br>`;
             });
         }
         if (newIssues.length > 0) {
                 message += `<b>${newIssues.length}</b> New Issues:<br>`;
             newIssues.forEach((issue) => {
-                    message += `&nbsp;&nbsp;<b><a href="${issue.url}">${issue.title}</a></b><br>`;
+                    message += `&nbsp;&nbsp;<b><a href="${issue.html_url}">${issue.title}</a></b><br>`;
             });
         }
         this.sendMessage(this.channels.notifications, message);
