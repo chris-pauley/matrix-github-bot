@@ -1,4 +1,5 @@
 const gh = require("./github.js");
+const notification_to_message = require('./notification_to_message.js');
 
 module.exports = [
     {
@@ -10,11 +11,8 @@ module.exports = [
                 if (await this.hasSeen('notification',notification.id)) {
                     return;
                 }
-                var title = notification.repository.full_name,
-                    subject = notification.subject.title,
-                    link = notification.repository.html_url,
-                    type = notification.subject.type;
-                this.sendMessage(this.channels.notifications, `<b>${title}</b> ${type} <a href="${link}">${subject}</a>`);
+                var msg = notification_to_message(notification);
+                this.sendMessage(this.channels.notifications, msg);
                 this.markSeen('notification', notification.id);
             });
         }

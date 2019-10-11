@@ -1,18 +1,17 @@
 const gh = require("./github.js");
+const notification_to_message = require('./notification_to_message.js');
 
 async function getNotifications(){
     const user = gh.getUser();
     const notifications = await user.listNotifications();
     const numShown = 0;
     notifications.data.forEach(async (notification) => {
-        if(await this.hasSeen('notification',notification.id)){
+        // the command doesn't need to check
+        /*if(await this.hasSeen('notification',notification.id)){
             return;
-        }
-        var title = notification.repository.full_name;
-        var subject = notification.subject.title;
-        var link = notification.subject.url;
-        var type = notification.subject.type;
-        this.respond(`<b>${title}</b> ${type} <a href="${link}">${subject}</a>`);
+        }*/
+        var msg = notification_to_message(notification);
+        this.respond(msg);
         this.markSeen('notification', notification.id);
         numShown++;
     });
